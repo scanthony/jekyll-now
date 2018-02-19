@@ -40,7 +40,7 @@ sudo apt-get install r-base r-base-dev
 
 ## 安装RStudio
 
-可以在[RStudio的网站](https://www.rstudio.com/)下载deb安装包，然后双击deb文件，就能在图形界面安装RStudio了。如果deb安装文件在Ubuntu下面使用比较卡顿，可以尝试下面的方法，用gdebi来安装deb包:
+可以在[RStudio的网站](https://www.rstudio.com/)下载deb安装包，然后双击deb文件，就能在图形界面安装RStudio了。如果deb安装文件在Ubuntu图形界面下使用比较卡顿，可以尝试下面的方法，用gdebi来安装deb包:
 
 先安装gdebi
 
