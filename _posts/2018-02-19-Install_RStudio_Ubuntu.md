@@ -13,30 +13,30 @@ title: 在Ubuntu下面安装RStudio
 
 我们需要添加Cran的服务器地址到 `/etc/apt/sources.list` 这个系统文件里。使用下面的代码可以直接完成这个操作。注意代码里的“xenial”是对应Ubuntu 16.04的版本代码。如果使用其它版本的Ubuntu，需要更换这个代码。
 
---
+```bash
 sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
---
+```
 
 ### 把R添加到Ubuntu的Keyring
 
 首先，
 
---
+```bash
 gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
---
+```
 
 然后，
 
---
+```bash
 gpg -a --export E084DAB9 | sudo apt-key add -
---
+```
 
 ### 安装基础R
 
---
+```bash
 sudo apt-get update
 sudo apt-get install r-base r-base-dev
---
+```
 
 ## 安装RStudio
 
@@ -44,14 +44,14 @@ sudo apt-get install r-base r-base-dev
 
 先安装gdebi
 
---
+```bash
 sudo apt-get install gdebi-core
---
+```
 
 然后用gdebi来安装RStudio的deb包，把path/to/your/rstudio/deb更换成RStduio安装包的路径和文件名：
 
---
+```bash
 sudo gdebi -n path/to/your/rstudio/deb
---
+```
 
 接着就可以开始方便地使用RStudio啦。
