@@ -55,3 +55,17 @@ sudo gdebi -n path/to/your/rstudio/deb
 ```
 
 接着就可以开始方便地使用RStudio啦。
+
+## 解决Ubuntu下面RStudio的汉字输入问题
+
+如果你和笔者一样，[在Ubuntu下面使用了搜狗拼音输入法](https://pinyin.sogou.com/linux/)，或者其他基于fcitx的中文输入法，那么，你可能会遇到在RStudio下无法输入中文的问题。
+
+要解决中文输入问题，需要[安装fcitx的Qt5插件](https://github.com/fcitx/fcitx-qt5)。使用下面的代码进行安装即可：
+
+```bash
+wget http://ikuya.info/tmp/fcitx-qt5-rstudio-qt542.tar.gz
+tar xf fcitx-qt5-rstudio-qt542.tar.gz
+sudo apt install ./fcitx-frontend-qt5-rstudio_1.0.5-1ubuntu1~qt542_amd64.deb ./libfcitx-qt5-1-rstudio_1.0.5-1ubuntu1~qt542_amd64.deb
+```
+
+重启电脑，就能在Ubuntu下面的RStudio里键入中文啦。
