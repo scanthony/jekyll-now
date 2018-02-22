@@ -31,7 +31,7 @@ cla_num <- str_replace_all(cla_num, '\\(', '#')
 cla_num <- str_replace_all(cla_num, '\\=', '$')
 ```
 
-### 将包含等号组配的分类号分割成两个字号码
+### 将包含冒号组配的分类号分割成两个子号码
 ```
 if (str_detect(cla_num, pattern = ":")) {
   cla_num_sep <- str_split(cla_num, pattern = ":", simplify = T)
@@ -69,7 +69,7 @@ cla_num1 <- pad_non_T(cla_num1)
 cla_num2 <- pad_non_T(cla_num2)
 ```
 
-### 搞定！连接两个字分类号即可
+### 搞定！连接两个子分类号即可
 
 先用空格填充两个分类号至长度一致，然后拼在一起即可。
 
@@ -79,7 +79,7 @@ cla_num2 <- str_pad(cla_num2, width = 20, side="right", pad = " ")
 comparified_cla_num <- paste(cla_num1, cla_num2, sep=':'))
 ```
 
-## 试验分类
+## 试验分类号的排序
 
 首先将上面的代码合并到一个函数`comparify_cla_num()`中，然后用一些随机的分类号来测试一下排序。
 
