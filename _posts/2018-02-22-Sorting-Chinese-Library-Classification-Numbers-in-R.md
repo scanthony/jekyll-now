@@ -13,7 +13,7 @@ title: 在R下面实现对中图分类号排序的简便方法
 
 ### 第一步：清理掉用于分割的`.`和`)`
 
-```r
+```{r}
 library(stringr)
 # Clearing all dots in CLC numbers
 cla_num <- str_replace_all(cla_num, '\\.', "")
@@ -25,14 +25,14 @@ cla_num <- str_replace_all(cla_num, '\\)', "")
 
 用!、#、$分别替换掉-、(、=这三个复分符号。虽然中图分类号中还会出现双引号等复分符号，由于我这次数据在分类时只使用了-、(、=这三种复分符号，因此其他的复分符号暂时没有考虑在内。可以自己调整代码来进一步完善排序功能。
 
-```r
+```{r}
 cla_num <- str_replace_all(cla_num, '\\-', '!')
 cla_num <- str_replace_all(cla_num, '\\(', '#')
 cla_num <- str_replace_all(cla_num, '\\=', '$')
 ```
 
 ### 将包含等号组配的分类号分割成两个字号码
-```r
+```{r}
 if (str_detect(cla_num, pattern = ":")) {
   cla_num_sep <- str_split(cla_num, pattern = ":", simplify = T)
   cla_num1 <- cla_num_sep[1]
@@ -47,7 +47,7 @@ if (str_detect(cla_num, pattern = ":")) {
 
 工业技术大类的分类号开头有两位英语字母，比如`TP`、`TS`、`TN`等。其他的大类开头仅仅一位字母。解决方法是添加一个占位的字符，来将字母和数字分别对齐。
 
-```r
+```{r}
 pad_non_T <- function(x) {
   # Input is a CLC number without column
   len <- nchar(x)
@@ -73,7 +73,7 @@ cla_num2 <- pad_non_T(cla_num2)
 
 先用空格填充两个分类号至长度一致，然后拼在一起即可。
 
-```r
+```{r}
 cla_num1 <- str_pad(cla_num1, width = 20, side="right", pad = " ")
 cla_num2 <- str_pad(cla_num2, width = 20, side="right", pad = " ")
 comparified_cla_num <- paste(cla_num1, cla_num2, sep=':'))
@@ -85,7 +85,7 @@ comparified_cla_num <- paste(cla_num1, cla_num2, sep=':'))
 
 注意，要实现排序，需要对R的`sort()`或者`order()`函数指定排序方法`method="radix"`，而且不能使用`dplyr`包的`arrange()`函数来进行排序。
 
-```R
+```{r}
 to_be_ordered <- tibble(clc_orig = c('K825.5=6','K825.5-49','F729','K825.5', 'F729(225)','F729-49','H319.4:I712','B94-49','I561.45','H319.4:D','TS976','TP319'))
 to_be_ordered <- mutate(to_be_ordered, clc_comparified = clc_orig)
 to_be_ordered$clc_comparified <- sapply(to_be_ordered$clc_comparified, comparify_cla_num)
