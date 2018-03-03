@@ -99,12 +99,14 @@ python evaluate.py --checkpoint "./mychk/fns.ckpt" --in-path "./img/orinigal-ima
 
 下面列出几幅图片供大家观看吧。
 
-滨海新区图书馆，被誉为国内最美的图书馆，没有“之一”。但是水墨画风格迁移的效果并不理想：
+滨海新区图书馆，被誉为国内最美的图书馆，没有“之一”。下面的图片，第一张是原图，第二张是风格迁移后的图片。但是水墨画风格迁移的效果并不理想：
 
-![原图：滨海新区图书馆](https://scanthony.github.io/images/Tianjin-Binhai-Library.jpg) ![国画风：滨海新区图书馆](https://scanthony.github.io/images/Tianjin-Binhai-Library-styled.jpg)
+![原图：滨海新区图书馆](https://scanthony.github.io/images/Tianjin-Binhai-Library.jpg) 
+![国画风：滨海新区图书馆](https://scanthony.github.io/images/Tianjin-Binhai-Library-styled.jpg)
 
 国画果然还是适合花花草草，来试试自己拍摄的一张照片，效果好多了：
 
-![原图：樱花](https://scanthony.github.io/images/sakura.jpg) ![国画风：樱花](https://scanthony.github.io/images/sakura-styled.jpg)
+![原图：樱花](https://scanthony.github.io/images/sakura.jpg) 
+![国画风：樱花](https://scanthony.github.io/images/sakura-styled.jpg)
 
 好了，就写到这里。麻麻再也不用担心我用Photoshop加工照片伤眼睛啦~
