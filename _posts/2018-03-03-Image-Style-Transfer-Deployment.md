@@ -58,7 +58,7 @@ pip install --ignore-installed --upgrade tensorflow-gpu==1.5.0
 
 ## 安装并运行fast-style-transfer
 
-## 安装并配置fast-style-transfer
+### 配置fast-style-transfer
 
 首先需要从[lengstrom的fast-style-transfer Repo](https://github.com/lengstrom/fast-style-transfer)下载整个Repo，并解压缩。
 
@@ -71,13 +71,25 @@ pip install --ignore-installed --upgrade tensorflow-gpu==1.5.0
 
 下面分为两个步骤：第一步，训练神经网络，学会目标图片的风格，生成并保存下模型文件。第二部，用生成的模型，迁移绘画风格。
 
-## 模型训练
+### 模型训练
 
 使用了下面这水墨画风格的图片来训练模型：
 
 ![一幅国画](https://scanthony.github.io/images/target-style.jpg)
 
-使用一下命令来开始模型训练：
+首先修改`src`目录下的`optimize.py`文件，把里面的这一行代码：
+
+```Python
+saver = tf.train.Saver()
+```
+
+替换为： 
+
+```Python
+saver = tf.train.Saver(write_version=tf.train.SaverDef.V1)
+```
+
+替换了上面的代码，解决了TensorFlow版本的兼容性问题之后，使用以下命令来开始模型训练：
 
 ```bash
 cd /file/folder/of/fast-style-transfer
@@ -88,7 +100,7 @@ python style.py --style "./img/target-style.jpg" --checkpoint-dir "./mychk" --co
 
 训练在我的电脑上花费了大概三四个钟头（没有太仔细地看表计时），最后会得到一个`fns.ckpt`文档，里面存储了模型学习到的绘画风格。
 
-## 完成风格迁移
+### 完成风格迁移
 
 这一步很快当，用GPU实现的话不到10秒钟。使用如下的命令来完成风格迁移：
 
