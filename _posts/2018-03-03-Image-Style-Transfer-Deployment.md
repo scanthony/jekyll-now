@@ -79,13 +79,13 @@ pip install --ignore-installed --upgrade tensorflow-gpu==1.5.0
 
 首先修改`src`目录下的`optimize.py`文件，把里面的这一行代码：
 
-```Python
+```
 saver = tf.train.Saver()
 ```
 
 替换为： 
 
-```Python
+```
 saver = tf.train.Saver(write_version=tf.train.SaverDef.V1)
 ```
 
