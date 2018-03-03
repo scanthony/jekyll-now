@@ -12,7 +12,7 @@ title: 部署fast-style-transfer实现图像绘画风格的自动迁移
 * [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](http://cs.stanford.edu/people/jcjohns/eccv16/) 
 * [Instance Normalization](https://arxiv.org/abs/1607.08022) 
 
-GitHub上面现成的绘画风格迁移Repo一大堆，有些是用Keras框架实现的。本以为Keras能解决掉底层框架版本的兼容性问题。试了之后才发现，好些基于Keras的框架都只能对尺寸很小的图片进行处理。还是只能回归到直接利用底层框架实现的Repo才行。又因为PyTorch目前只支持Linux和Mac OS X，Theano也都停止维护了，最后证明还是TensorFlow靠谱。
+GitHub上面现成的绘画风格迁移Repo一大堆，有些是用Keras框架实现的。本以为Keras能解决掉底层框架版本的兼容性问题。试了之后才发现，好些基于Keras的Repo都只能对尺寸很小的图片进行处理。还是只能回归到直接利用底层框架实现的Repo才行。又因为PyTorch目前只支持Linux和Mac OS X，Theano也都停止维护了，最后证明还是TensorFlow靠谱。
 
 最终我用Repo的是[lengstrom的fast-style-transfer](https://github.com/lengstrom/fast-style-transfer)。本文也将介绍如何在Windows 10下面部署这个应用，实施绘画风格的迁移。
 
