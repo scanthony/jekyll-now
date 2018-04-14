@@ -42,3 +42,5 @@ ShelveR自豪地采用R语言编写，一个众所周知的，用于统计计算
 本项目从开始到基本完成，离不开单位上很多同事的支持、帮助和鼓励。借此机会，向流通阅览部、文献资源建设部的领导与同事，信息技术帮忙抽取相关数据的老师说声谢谢！
 
 最后，欢迎大家试用ShelveR，并提出宝贵意见 :-)
+
+[View this page in English. ](https://scanthony.github.io/ShelveR-Automated-Shelving-Planning-en/)
