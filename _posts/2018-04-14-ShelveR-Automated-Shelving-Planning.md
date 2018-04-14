@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ShelveR: 图书馆大规模书架整理时的自动排架规划
+title: ShelveR：图书馆大规模书架整理时的自动排架规划
 ---
 
 # ShelveR: 图书馆大规模书架整理时的自动排架规划
