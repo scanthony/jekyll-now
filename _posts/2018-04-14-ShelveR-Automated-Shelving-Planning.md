@@ -5,7 +5,7 @@ title: ShelveR：图书馆大规模书架整理时的自动排架规划
 
 很高兴地向各位图书馆界的朋友介绍[ShelveR项目](https://github.com/scanthony/ShelveR-Automated-Shelving-Planning-for-Libraries)，一个用于图书馆大规模书架整理时的自动排架规划程序。在图书馆搬迁新址，或是大量剔除旧书等等情况下，ShelveR能帮助图书馆员快速规划、分配书架，提高工作效率。
 
-ShelveR自豪地采用R语言编写，一个众所周知的，用于统计计算的开源项目。运行本程序需要用到一下R包： 
+ShelveR自豪地采用R语言编写，一个众所周知的，用于统计计算的开源项目。运行本程序需要用到以下R包： 
 
 * rebus
 * dplyr
