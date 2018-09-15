@@ -77,29 +77,18 @@ sudo apt install ./fcitx-frontend-qt5-rstudio_1.0.5-1ubuntu1~qt542_amd64.deb ./l
 新增对Ubuntu 18.04的安装代码：
 
 {% highlight bash%}
-
 sudo apt-key adv --keyserver [keyserver.ubuntu.com](http://keyserver.ubuntu.com/) --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-
 sudo add-apt-repository 'deb [https://cloud.r-project.org/bin/linux/ubuntu](https://cloud.r-project.org/bin/linux/ubuntu) bionic-cran35/'
-
 sudo apt update
-
 sudo apt install r-base
-
 sudo apt-get install gdebi-core
-
 sudo gdebi -n path/to/your/rstudio/deb
-
 {% endhighlight %}
 
 然后解决中文输入法的问题：
 
 {% highlight bash%}
-
 wget [http://ikuya.info/tmp/fcitx-qt5-rstudio-qt542+2.tar.gz](http://ikuya.info/tmp/fcitx-qt5-rstudio-qt542+2.tar.gz)
-
 tar xf fcitx-qt5-rstudio-qt542+2.tar.gz
-
 sudo apt install ./fcitx-frontend-qt5-rstudio\_1.0.5-1ubuntu1~qt542+2\_amd64.deb ./libfcitx-qt5-1-rstudio\_1.0.5-1ubuntu1~qt542+2\_amd64.deb
-
 {% endhighlight %}
