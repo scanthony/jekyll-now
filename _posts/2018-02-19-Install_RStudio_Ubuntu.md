@@ -1,3 +1,4 @@
+
 ---
 layout: post
 title: 在Ubuntu下面安装RStudio
@@ -13,30 +14,30 @@ title: 在Ubuntu下面安装RStudio
 
 我们需要添加Cran的服务器地址到 `/etc/apt/sources.list` 这个系统文件里。使用下面的代码可以直接完成这个操作。注意代码里的“xenial”是对应Ubuntu 16.04的版本代码。如果使用其它版本的Ubuntu，需要更换这个代码。
 
-```bash
+{% highlight bash%}
 sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
-```
+{% endhighlight %}
 
 ### 把R添加到Ubuntu的Keyring
 
 首先，
 
-```bash
+{% highlight bash%}
 gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
-```
+{% endhighlight %}
 
 然后，
 
-```bash
+{% highlight bash%}
 gpg -a --export E084DAB9 | sudo apt-key add -
-```
+{% endhighlight %}
 
 ### 安装基础R
 
-```bash
+{% highlight bash%}
 sudo apt-get update
 sudo apt-get install r-base r-base-dev
-```
+{% endhighlight %}
 
 ## 安装RStudio
 
@@ -44,15 +45,15 @@ sudo apt-get install r-base r-base-dev
 
 先安装gdebi
 
-```bash
+{% highlight bash%}
 sudo apt-get install gdebi-core
-```
+{% endhighlight %}
 
 然后用gdebi来安装RStudio的deb包，把path/to/your/rstudio/deb更换成RStduio安装包的路径和文件名：
 
-```bash
+{% highlight bash%}
 sudo gdebi -n path/to/your/rstudio/deb
-```
+{% endhighlight %}
 
 接着就可以开始方便地使用RStudio啦。
 
@@ -62,10 +63,44 @@ sudo gdebi -n path/to/your/rstudio/deb
 
 要解决中文输入问题，需要[安装fcitx的Qt5插件](https://github.com/fcitx/fcitx-qt5)。使用下面的代码进行安装即可：
 
-```bash
+{% highlight bash%}
 wget http://ikuya.info/tmp/fcitx-qt5-rstudio-qt542.tar.gz
 tar xf fcitx-qt5-rstudio-qt542.tar.gz
 sudo apt install ./fcitx-frontend-qt5-rstudio_1.0.5-1ubuntu1~qt542_amd64.deb ./libfcitx-qt5-1-rstudio_1.0.5-1ubuntu1~qt542_amd64.deb
-```
+{% endhighlight %}
 
 重启电脑，就能在Ubuntu下面的RStudio里键入中文啦。
+
+
+
+## 2018-09-15更新
+
+新增对Ubuntu 18.04的安装代码：
+
+{% highlight bash%}
+
+sudo apt-key adv --keyserver [keyserver.ubuntu.com](http://keyserver.ubuntu.com/) --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+
+sudo add-apt-repository 'deb [https://cloud.r-project.org/bin/linux/ubuntu](https://cloud.r-project.org/bin/linux/ubuntu) bionic-cran35/'
+
+sudo apt update
+
+sudo apt install r-base
+
+sudo apt-get install gdebi-core
+
+sudo gdebi -n path/to/your/rstudio/deb
+
+{% endhighlight %}
+
+然后解决中文输入法的问题：
+
+{% highlight bash%}
+
+wget [http://ikuya.info/tmp/fcitx-qt5-rstudio-qt542+2.tar.gz](http://ikuya.info/tmp/fcitx-qt5-rstudio-qt542+2.tar.gz)
+
+tar xf fcitx-qt5-rstudio-qt542+2.tar.gz
+
+sudo apt install ./fcitx-frontend-qt5-rstudio\_1.0.5-1ubuntu1~qt542+2\_amd64.deb ./libfcitx-qt5-1-rstudio\_1.0.5-1ubuntu1~qt542+2\_amd64.deb
+
+{% endhighlight %}
